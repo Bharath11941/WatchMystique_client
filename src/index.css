@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.head_text{
+  @apply text-[40px] text-black font-bold uppercase leading-[146%] 
+}
