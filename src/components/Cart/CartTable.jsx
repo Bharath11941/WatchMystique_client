@@ -23,7 +23,6 @@ const CartTable = () => {
   const [loading, setLoading] = useState(false);
   const { setCartCount } = useContext(CartContext);
   useEffect(() => {
-    console.log("hi");
     setLoading(true);
     cartProducts()
       .then((res) => {

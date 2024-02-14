@@ -4,22 +4,21 @@ import CartContext from "../../context/cartCountContext";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const Card = ({ product }) => {
-  const { title, price, image, offer,_id } = product;
+  const { title, price, image, offer, _id } = product;
 
-  const {setCartCount} = useContext(CartContext)
-
+  const { setCartCount } = useContext(CartContext);
 
   const handleCart = async () => {
     try {
-      const res = await addToCart(_id,1)
-      setCartCount(res?.data?.count)
-      localStorage.setItem('cartCount', res?.data?.count.toString());
-      toast.success(res?.data?.message)
+      const res = await addToCart(_id, 1);
+      setCartCount(res?.data?.count);
+      localStorage.setItem("cartCount", res?.data?.count.toString());
+      toast.success(res?.data?.message);
     } catch (error) {
       toast.error(error.response?.data?.message);
-      console.log(error.message)
+      console.log(error.message);
     }
-  } 
+  };
 
   const renderOffer = () => {
     if (offer) {
@@ -113,7 +112,10 @@ const Card = ({ product }) => {
         <div className="p-4">
           {renderOffer()}
           <div className="flex items-center justify-center">
-            <button onClick={handleCart} className="bg-blue-500 text-white font-semibold px-4 py-2 rounded-md mt-4 hover:bg-blue-600 transition duration-300 ease-in-out">
+            <button
+              onClick={handleCart}
+              className="bg-blue-500 text-white font-semibold px-4 py-2 rounded-md mt-4 hover:bg-blue-600 transition duration-300 ease-in-out"
+            >
               Add to Cart
             </button>
           </div>

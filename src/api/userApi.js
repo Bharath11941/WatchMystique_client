@@ -7,7 +7,6 @@ export const productList = async () => {
 }
 
 export const addToCart = async (productId,quantity) => {
-  console.log(productId,quantity)
   const data = await userAxiosInstance.put('/addToCart',{productId,quantity})
   return data
 }
@@ -18,7 +17,6 @@ export const cartProducts = async () => {
 }
 
 export const updateCart = async (productId,quantity) => {
-  console.log(productId,quantity)
   const data = await userAxiosInstance.patch('/updateCart',{productId,quantity})
   return data
 }
